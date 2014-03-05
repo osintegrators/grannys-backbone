@@ -1,6 +1,7 @@
-define(['backbone'], function(Backbone){
+define(['backbone', 'js/models/address'], function(Backbone, AddressModel){
   var AddressCollection = Backbone.Collection.extend({
-    url: '/addresses' 
+    url: '/addresses',
+    model: AddressModel
   });
 
   return AddressCollection;
