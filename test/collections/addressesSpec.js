@@ -6,5 +6,10 @@ define(['js/collections/addresses'], function(AddressCollection){
       expect(AddressCollection).toBeDefined();
     });
 
+    it('should have a url mapped to it', function(){
+      var addresses = new AddressCollection();
+      expect(addresses.url).toBeDefined();
+    });
+
   });
 });
