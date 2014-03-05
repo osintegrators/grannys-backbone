@@ -1,7 +1,7 @@
 define(['backbone'], function(Backbone){
-  var AddressesCollection = Backbone.Collection.extend({
-    
+  var AddressCollection = Backbone.Collection.extend({
+    url: '/addresses' 
   });
 
-  return AddressesCollection;
+  return AddressCollection;
 });
