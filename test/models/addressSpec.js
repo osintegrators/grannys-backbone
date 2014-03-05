@@ -6,15 +6,27 @@ define(['js/models/address', 'test/fixtures/address'], function(AddressModel, Ad
       expect(address.get("firstName")).toBe("Jane");
     })
 
-    it('should require a first name', function(){
-      var address = new AddressModel(AddressFixture);
+    describe('should have required fields: ', function(){
+      it('first name', function(){
+        var address = new AddressModel(AddressFixture);
 
-      address.unset('firstName');
-      expect(address.isValid()).toBe(false);
+        address.unset('firstName');
+        expect(address.isValid()).toBe(false);
 
-      address.set('firstName', AddressFixture.firstName);
-      expect(address.isValid()).toBe(true);
+        address.set('firstName', AddressFixture.firstName);
+        expect(address.isValid()).toBe(true);
 
+      });
+      it('last name', function(){
+        var address = new AddressModel(AddressFixture);
+
+        address.unset('lastName');
+        expect(address.isValid()).toBe(false);
+
+        address.set('lastName', AddressFixture.lastName);
+        expect(address.isValid()).toBe(true);
+
+      });
     });
   });
 
