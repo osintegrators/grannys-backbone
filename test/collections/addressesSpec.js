@@ -19,5 +19,11 @@ define([
       expect(addresses.model).toBe(AddressModel);
     });
 
+    it('should be able to process a successful response from the server', function(){
+      var addresses = new AddressCollection();
+      addresses.fetch();
+      expect(addresses.length).toBe(3);
+    });
+
   });
 });
