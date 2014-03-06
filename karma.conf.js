@@ -13,7 +13,8 @@ module.exports = function(config) {
 
     //preprocessors
     preprocessors: {
-      'js/**/*.js': 'coverage'
+      'js/**/*.js': 'coverage',
+      'templates/**/*.hbs': []
     },
 
     // list of files / patterns to load in the browser
@@ -21,6 +22,7 @@ module.exports = function(config) {
       'test/test-main.js',
       {pattern: 'js/**/*.js', included: false},
       {pattern: 'test/fixtures/*.js', included: false, watched: true, served: true},
+      {pattern: 'templates/**/*.hbs', included: false, watched: true, served: true},
       {pattern: 'test/**/*Spec.js', included: false},
       {pattern: 'bower_components/**/*.js', included: false, watched: false, served: true}
     ],
