@@ -15,10 +15,17 @@ define([
       return this;
     },
     events: {
-      'click .js-edit-button': 'toEditMode'
+      'click .js-edit-button': 'toEditMode',
+      'click .js-cancel-button': 'cancelChanges'
     },
     toEditMode: function(){
       this.$el.addClass('editing');
+    },
+    cancelChanges: function(){
+      this.toViewMode();
+    },
+    toViewMode: function(){
+      this.$el.removeClass('editing');
     }
   });
 

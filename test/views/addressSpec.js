@@ -10,13 +10,16 @@ define([
 
     beforeEach(function(){
       address = new AddressModel(ModelFixtures);
+
       addressView = new AddressView({ model: address});
       addressView.render();
+      //$('body').append(addressView.$el);
     });
 
     afterEach(function(){
+      //addressView.remove();
+
       address = null;
-      addressView.remove();
       addressView = null;
     });
 
@@ -51,9 +54,12 @@ define([
         expect(addressView.$el).toHaveClass('editing');
       });
 
-      it('should hide some components and show others', function(){
-
+      it('should have an cancel button that removes the edit class from the view', function(){
+        var cancelButton = addressView.$('.js-cancel-button');
+        cancelButton.click();
+        expect(addressView.$el).not.toHaveClass('editing');
       });
+
     })
   });
 });
