@@ -21,7 +21,6 @@ define(['underscore', 'backbone'], function(_, Backbone) {
     },
     revertChanges: function(){
       this.set(this._oldCopy, {silent: true});
-      debugger;
     }
   });
 
