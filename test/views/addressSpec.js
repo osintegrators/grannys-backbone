@@ -11,6 +11,7 @@ define([
     beforeEach(function(){
       address = new AddressModel(ModelFixtures);
       addressView = new AddressView({ model: address});
+      addressView.render();
     });
 
     afterEach(function(){
@@ -20,7 +21,6 @@ define([
     });
 
     it('should render first name, last name, and twitter handle', function(){
-      addressView.render();
 
       expect(addressView.$('.first-name').text()).toBe(ModelFixtures.firstName);
       expect(addressView.$('.last-name').text()).toBe(ModelFixtures.lastName);
@@ -35,12 +35,25 @@ define([
       expect(addressView.$('.twitter').text()).toBe(ModelFixtures.twitter);
     });
 
-    it('should have an edit button that adds the edit class to it', function(){
-      addressView.render();
-      var editButton = addressView.$('.js-edit-button');
-      expect(editButton).toExist();
-      editButton.click();
-      expect(addressView.$el).toHaveClass('editing');
-    });
+    describe('has an edit mode that', function(){
+      var editButton;
+
+      beforeEach(function(){
+        editButton = addressView.$('.js-edit-button');
+        editButton.click();
+      });
+
+      it('should have an edit button', function(){
+        expect(editButton).toExist();
+      });
+
+      it('should have an edit button that adds the edit class to the view', function(){
+        expect(addressView.$el).toHaveClass('editing');
+      });
+
+      it('should hide some components and show others', function(){
+
+      });
+    })
   });
 });
