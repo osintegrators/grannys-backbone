@@ -13,6 +13,12 @@ define([
       this.$el.html(this.template(modelJSON));
     
       return this;
+    },
+    events: {
+      'click .js-edit-button': 'toEditMode'
+    },
+    toEditMode: function(){
+      this.$el.addClass('editing');
     }
   });
 
