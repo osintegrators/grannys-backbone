@@ -13,6 +13,7 @@ requirejs.config({
 
   paths: {
     'jquery': 'bower_components/jquery/dist/jquery',
+    'jasmine-jquery': 'bower_components/jasmine-jquery/lib/jasmine-jquery',
     'underscore': 'bower_components/underscore/underscore',
     'backbone': 'bower_components/backbone/backbone',
     'hbs': 'bower_components/require-handlebars-plugin/hbs'
@@ -21,6 +22,9 @@ requirejs.config({
   shim: {
     'underscore': {
       exports: '_'
+    },
+    'jasmine-jquery': {
+      deps: ['jquery']
     }
   },
 
